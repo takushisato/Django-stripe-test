@@ -16,8 +16,9 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 # BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-
 from pathlib import Path
+
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -31,8 +32,6 @@ STATIC_DIR = BASE_DIR / "static"
 # メディアフォルダへの絶対パスを定義
 MEDIA_DIR = BASE_DIR / "media"
 
-
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
@@ -43,7 +42,6 @@ SECRET_KEY = 'django-insecure-(qgr+)+4jbmk(l&f0^q8zzkd==jq(%+ia@f4n2vdu6v-24#g@b
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
 
 # Application definition
 
@@ -87,7 +85,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'server.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
@@ -97,7 +94,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -131,13 +127,12 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 # CSSファイル格納用のフォルダ
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [STATIC_DIR,]
+STATICFILES_DIRS = [STATIC_DIR, ]
 
 # 商品写真アップロード用のフォルダ
 MEDIA_ROOT = MEDIA_DIR
@@ -148,11 +143,15 @@ MEDIA_URL = "/media/"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+import environ
+
+env = environ.Env()
+env.read_env('.env')
 # Stripeのパブリックキー
-# STRIPE_PUBLIC_KEY = 'ここにSTRIPE_PUBLIC_KEYを入力'
+STRIPE_PUBLIC_KEY = env('STRIPE_PUBLIC_KEY')
 
 # Stripeのシークレットキー
-# STRIPE_SECRET_KEY = 'ここにSTRIPE_SECRET_KEYを入力'
+STRIPE_SECRET_KEY = env('STRIPE_SECRET_KEY')
 
 # StripeのWebhookのシークレットキー
-# STRIPE_WEBHOOK_SECRET = 'ここにSTRIPE_WEBHOOK_SECRETを入力（現時点でここはまだ修正しなくてOKです）'
+STRIPE_WEBHOOK_SECRET = env('STRIPE_WEBHOOK_SECRET')

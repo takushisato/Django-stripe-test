@@ -12,6 +12,7 @@ asgiref = "^3.7.2"
 django = "^4.2.3"
 pytz = "^2023.3"
 stripe = "^5.5.0"
+django-environ = "^0.10.0"
 
 
 [build-system]
