@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "django-stripe"
+version = "0.1.0"
+description = ""
+authors = ["taku820801 <takuchanpower@gmail.com>"]
+readme = "README.md"
+packages = [{include = "django_stripe"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+asgiref = "^3.7.2"
+django = "^4.2.3"
+pytz = "^2023.3"
+stripe = "^5.5.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
