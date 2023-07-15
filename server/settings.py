@@ -123,9 +123,9 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'Asia/Tokyo'
+LANGUAGE_CODE = 'ja'
 
-TIME_ZONE = 'ja'
+TIME_ZONE = 'Asia/Tokyo'
 
 USE_I18N = True
 
