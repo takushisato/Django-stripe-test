@@ -148,3 +148,11 @@ MEDIA_URL = "/media/"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Stripeのパブリックキー
+# STRIPE_PUBLIC_KEY = 'ここにSTRIPE_PUBLIC_KEYを入力'
+
+# Stripeのシークレットキー
+# STRIPE_SECRET_KEY = 'ここにSTRIPE_SECRET_KEYを入力'
+
+# StripeのWebhookのシークレットキー
+# STRIPE_WEBHOOK_SECRET = 'ここにSTRIPE_WEBHOOK_SECRETを入力（現時点でここはまだ修正しなくてOKです）'
