@@ -10,10 +10,27 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+# from pathlib import Path
+#
+# # Build paths inside the project like this: BASE_DIR / 'subdir'.
+# BASE_DIR = Path(__file__).resolve().parent.parent
+
+
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Tepmpateフォルダへの絶対パスを定義
+TEMPLATE_DIR = BASE_DIR / "Template"
+
+# staticフォルダへの絶対パスを定義
+STATIC_DIR = BASE_DIR / "static"
+
+# メディアフォルダへの絶対パスを定義
+MEDIA_DIR = BASE_DIR / "media"
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -55,7 +72,7 @@ ROOT_URLCONF = 'server.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATE_DIR],  # 追加
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -104,9 +121,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'Asia/Tokyo'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'ja'
 
 USE_I18N = True
 
@@ -116,9 +133,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
+# CSSファイル格納用のフォルダ
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [STATIC_DIR,]
+
+# 商品写真アップロード用のフォルダ
+MEDIA_ROOT = MEDIA_DIR
+MEDIA_URL = "/media/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
