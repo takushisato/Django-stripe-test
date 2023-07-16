@@ -18,7 +18,6 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
-
 # 価格マスタ
 class Price(models.Model):
     # 外部キーで商品マスタを紐付け
@@ -31,3 +30,21 @@ class Price(models.Model):
     # Django画面に表示する価格
     def get_display_price(self):
         return self.price
+
+
+# トランザクションマスタ
+class Transaction(models.Model):
+    # 購入日
+    date = models.CharField(max_length=100)
+    # 購入者
+    customer_name = models.CharField(max_length=100)
+    # 購入者のメールアドレス
+    email = models.EmailField(max_length=100)
+    # 購入商品名
+    product_name = models.CharField(max_length=100)
+    # 支払い金額
+    product_amount = models.IntegerField()
+
+    # admin画面で商品名表示
+    def __str__(self):
+        return self.date + '_' + self.product_name + '_' + self.customer_name
